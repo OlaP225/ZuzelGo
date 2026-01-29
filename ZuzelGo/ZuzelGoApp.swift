@@ -12,6 +12,12 @@ struct ZuzelGoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            TabView{
+//                HomeView()
+//                RankingView()
+//                TeamView()
+//            } //TabView
         }
     }
 }
+
