@@ -11,17 +11,12 @@ struct ContentView: View {
     var body: some View {
         
         ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]),
-                           startPoint: .bottomTrailing,
-                           endPoint: .topLeading)
-                .ignoresSafeArea(.all)
+            BackgroundView(topColor: Color("GrayBackground"), bottomColor: Color.black)
 
             VStack {
                 HStack {
                     Spacer(minLength: 200)
-                    Text("ŻużelGo")
-                        .font(.system(.largeTitle, design: .monospaced))
-                        .foregroundColor(Color.white)
+                    LogoTextView()
                     Spacer(minLength: 10)
                 }
                 Spacer()
@@ -46,27 +41,23 @@ struct ContentView: View {
                                                brightness: 0.824))
                 }
                 Spacer()
-
-
-                Button(action: guestEnter){
-                    Text("Dołącz jako gość")
-                        .foregroundColor(Color.black)
-                        .font(.system(.headline, design: .monospaced))
-                        .fontWeight(.bold)
+                
+                Button {
+                    
+                } label: {
+                    MainButtonStyle(title: "Dołącz jako gość",
+                                    backgroundColor: Color(hue: 0.04, saturation: 0.808, brightness: 1.0),
+                                    textColor: Color.black)
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.9, height: 50, alignment: .center)
-                .background(Color(hue: 0.04, saturation: 0.808, brightness: 1.0))
-                .cornerRadius(15)
-
-                Button(action: memberEnter){
-                    Text("Zaloguj/Zarejestruj się")
-                        .foregroundColor(Color.black)
-                        .font(.system(.headline, design: .monospaced))
-                        .fontWeight(.bold)
+                
+                Button {
+                    
+                } label: {
+                    MainButtonStyle(title: "Zaloguj/Zarejestruj się",
+                                    backgroundColor: Color.white,
+                                    textColor: Color.black)
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.9, height: 50, alignment: .center)
-                .background(Color.white)
-                .cornerRadius(15)
+                
                 Spacer()
                 Spacer()
             }
@@ -76,15 +67,26 @@ struct ContentView: View {
     }
 }
 
-func guestEnter() {
-    
-}
-
-func memberEnter() {
-    
-}
-
 
 #Preview {
     ContentView()
+}
+
+struct BackgroundView: View {
+    var topColor: Color
+    var bottomColor: Color
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [bottomColor, topColor]),
+                       startPoint: .bottomTrailing,
+                       endPoint: .topLeading)
+        .ignoresSafeArea(.all)
+    }
+}
+
+struct LogoTextView: View {
+    var body: some View {
+        Text("ŻużelGo")
+            .font(.system(.largeTitle, design: .monospaced))
+            .foregroundColor(Color.white)
+    }
 }
