@@ -19,7 +19,7 @@ struct MainButtonStyle: View {
             .font(.system(.headline, design: .monospaced))
             .fontWeight(.bold)
             .frame(width: UIScreen.main.bounds.width * 0.9, height: 50, alignment: .center)
-            .background(backgroundColor)
+            .background(backgroundColor.gradient)
             .cornerRadius(15)
     }
 }
