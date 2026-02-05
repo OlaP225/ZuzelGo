@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6F8D2EEC2F33ADCA007498C0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6F8D2EEB2F33ADCA007498C0 /* FirebaseAuth */; };
+		6F8D2EEE2F33ADCA007498C0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6F8D2EED2F33ADCA007498C0 /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6F8D2EBD2F2A768E007498C0 /* ZuzelGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZuzelGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F8D2EEC2F33ADCA007498C0 /* FirebaseAuth in Frameworks */,
+				6F8D2EEE2F33ADCA007498C0 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = ZuzelGo;
 			packageProductDependencies = (
+				6F8D2EEB2F33ADCA007498C0 /* FirebaseAuth */,
+				6F8D2EED2F33ADCA007498C0 /* FirebaseFirestore */,
 			);
 			productName = ZuzelGo;
 			productReference = 6F8D2EBD2F2A768E007498C0 /* ZuzelGo.app */;
@@ -107,6 +116,9 @@
 			);
 			mainGroup = 6F8D2EB42F2A768E007498C0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6F8D2EEA2F33ADCA007498C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6F8D2EBE2F2A768E007498C0 /* Products */;
 			projectDirPath = "";
@@ -341,6 +353,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6F8D2EEA2F33ADCA007498C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F8D2EEB2F33ADCA007498C0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F8D2EEA2F33ADCA007498C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		6F8D2EED2F33ADCA007498C0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F8D2EEA2F33ADCA007498C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F8D2EB52F2A768E007498C0 /* Project object */;
 }

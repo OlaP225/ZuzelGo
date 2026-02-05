@@ -10,15 +10,13 @@ import SwiftUI
 struct WelcomeView: View {
     var body: some View {
         
-        ZStack{
-            BackgroundView(topColor: Color.gray, bottomColor: Color.black)
+        ZStack (alignment: .topTrailing){
+            BackgroundView(topColor: Color.black, bottomColor: Color.blue)
+            LogoTextView()
+                .padding(.top, 15)
+                .padding(.trailing, 30)
 
             VStack {
-                HStack {
-                    Spacer(minLength: 200)
-                    LogoTextView()
-                    Spacer(minLength: 10)
-                }
                 Spacer()
                 Spacer()
                 Image("transport")
@@ -70,20 +68,6 @@ struct WelcomeView: View {
 
 #Preview {
     WelcomeView()
-}
-
-struct BackgroundView: View {
-    var topColor: Color
-    var bottomColor: Color
-    var body: some View {
-        LinearGradient(gradient: Gradient(colors: [bottomColor, topColor]),
-                       startPoint: .bottomTrailing,
-                       endPoint: .topLeading)
-        .ignoresSafeArea()
-//        ContainerRelativeShape()
-//            .fill(Color.black.gradient)
-//            .ignoresSafeArea()
-    }
 }
 
 struct LogoTextView: View {
