@@ -106,7 +106,6 @@ struct RegisterView: View {
                     
                 } .offset(y: 120)
                     .onAppear{
-                        focus = .username
                         print(userIsLoggedIn)
                         Auth.auth().addStateDidChangeListener { auth, user in
                             if user != nil {
@@ -115,6 +114,7 @@ struct RegisterView: View {
                         }
                     }
             }
+            .offset(y: -20)
             
             
             
