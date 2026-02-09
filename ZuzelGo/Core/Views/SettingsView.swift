@@ -12,7 +12,7 @@ struct SettingsView: View {
         List{
             Section{
                 HStack{
-                    Text("AP")
+                    Text(User.MOCK_USER.initials)
                         .font(.largeTitle)
                         .foregroundColor(Color.white)
                         .frame(width: 72, height: 72)
