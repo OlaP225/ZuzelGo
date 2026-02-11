@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         List{
             Section{
@@ -43,13 +45,13 @@ struct SettingsView: View {
             Section("Konto"){
                 
                 Button {
-                    // sign out
+                    viewModel.deleteAccount()
                 } label: {
                     SettingsRowView(imageName: "arrow.left.circle.fill", title: "Wyloguj", tintColor: Color(.systemRed))
                 }
                 
                 Button {
-                    // delete account
+                    viewModel.deleteAccount()
                 } label: {
                     SettingsRowView(imageName: "x.circle.fill", title: "Usuń konto", tintColor: Color(.systemRed))
                 }

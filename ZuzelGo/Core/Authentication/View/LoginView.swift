@@ -11,6 +11,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationStack{
@@ -49,7 +50,9 @@ struct LoginView: View {
                     
                     Spacer()
                     Button {
-                        //singIn
+                        Task {
+                            try await viewModel.logIn(email: email, password: password)
+                        }
                     } label: {
                         MainButtonStyle(title: "Zaloguj się", backgroundColor: Color(hue: 0.04, saturation: 0.808, brightness: 1.0), textColor: Color.white)
                     }

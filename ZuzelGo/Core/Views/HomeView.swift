@@ -12,16 +12,12 @@ struct HomeView: View {
     var body: some View {
         
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).foregroundColor(Color.red)
+            Text("Siema nigdy nie widziales takiej pieknej strony").foregroundColor(Color.white)
+                .font(.largeTitle)
             Button {
-                do {
-                    try Auth.auth().signOut()
-                    print("WYlogowano")
-                } catch let error {
-                    print(error.localizedDescription)
-                }
+                print("BUM")
             } label: {
-                MainButtonStyle(title: "WYloguj", backgroundColor: Color.purple, textColor: Color.white)
+                MainButtonStyle(title: "NIE KLIKAJ, WYBUCHNIE", backgroundColor: Color.red, textColor: Color.white)
             }
         }
         

@@ -13,6 +13,8 @@ struct RegisterView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -57,7 +59,9 @@ struct RegisterView: View {
                     
                     Spacer()
                     Button {
-                        //register
+                        Task {
+                            try await viewModel.register(email: email, password: password, username: username)
+                        }
                     } label: {
                         MainButtonStyle(title: "Zarejestruj się", backgroundColor: Color(hue: 0.04, saturation: 0.808, brightness: 1.0), textColor: Color.white)
                     }
