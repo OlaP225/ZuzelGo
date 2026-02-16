@@ -18,14 +18,8 @@ struct ZuzelGoApp: App {
 
     var body: some Scene {
         WindowGroup {
- //           RegisterView()
             ContentView()
                 .environmentObject(viewModel)
-//            TabView{
-//                HomeView()
-//                RankingView()
-//                TeamView()
-//            } //TabView
         }
     }
 }
