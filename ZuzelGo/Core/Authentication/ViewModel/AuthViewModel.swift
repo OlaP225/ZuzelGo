@@ -41,6 +41,15 @@ class AuthViewModel: ObservableObject {
     }
     
     func logOut() {
+        do {
+            try Auth.auth().signOut()
+            self.userSession = nil
+            self.currentUser = nil
+            
+            
+        } catch {
+            print("DEBUG: Failed to log out \(error.localizedDescription)")
+        }
         
     }
     

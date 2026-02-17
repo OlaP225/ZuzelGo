@@ -46,7 +46,7 @@ struct SettingsView: View {
                 Section("Konto"){
                     
                     Button {
-                        viewModel.deleteAccount()
+                        viewModel.logOut()
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Wyloguj", tintColor: Color(.systemRed))
                     }
