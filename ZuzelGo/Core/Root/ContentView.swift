@@ -11,31 +11,33 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        Group {
-            if viewModel.userSession != nil {
-                
-                TabView {
-                    HomeView()
-                        .tabItem {
-                            Image(systemName: "house")
-                            Text("mecze")
-                        }
-                    VotingView()
-                        .tabItem {
-                            Image(systemName: "flag.pattern.checkered.2.crossed")
-                            Text("głosowanie")
-                        }
-                    SettingsView()
-                        .tabItem {
-                            Image(systemName: "gearshape")
-                            Text("ustawienia")
-                        }
+        NavigationStack{
+            Group {
+                if viewModel.userSession != nil {
                     
+                    TabView {
+                        HomeView()
+                            .tabItem {
+                                Image(systemName: "house")
+                                Text("mecze")
+                            }
+                        VotingView()
+                            .tabItem {
+                                Image(systemName: "flag.pattern.checkered.2.crossed")
+                                Text("głosowanie")
+                            }
+                        SettingsView()
+                            .tabItem {
+                                Image(systemName: "gearshape")
+                                Text("ustawienia")
+                            }
+                        
+                        
+                    }
                     
+                } else {
+                    WelcomeView()
                 }
-                
-            } else {
-                RegisterView()
             }
         }
     }

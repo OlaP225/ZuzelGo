@@ -23,6 +23,8 @@ struct VotingView: View {
             Image("background")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
+//            BackgroundView(topColor: Color.black, bottomColor: Color.blue)
+
             
             VStack{
                 Spacer()
