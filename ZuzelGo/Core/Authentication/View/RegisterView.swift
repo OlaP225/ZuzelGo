@@ -65,6 +65,8 @@ struct RegisterView: View {
                     } label: {
                         MainButtonStyle(title: "Zarejestruj się", backgroundColor: Color(hue: 0.04, saturation: 0.808, brightness: 1.0), textColor: Color.white)
                     }
+                    .disabled(!formulaIsValid)
+                    .opacity(formulaIsValid ? 1 : 0.8)
                     
                     HStack (spacing: 10){
                         Rectangle()
@@ -117,6 +119,17 @@ struct RegisterView: View {
     }
 }
 
+
+extension RegisterView: AuthenticationFormProtocol {
+    var formulaIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count >= 6
+        && password == confirmPassword
+        && !username.isEmpty
+    }
+}
 
 #Preview {
     RegisterView()

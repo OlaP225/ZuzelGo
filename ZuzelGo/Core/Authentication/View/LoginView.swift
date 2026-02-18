@@ -49,6 +49,9 @@ struct LoginView: View {
                     .padding(.top, 30)
                     
                     Spacer()
+                    
+                    // Log in button
+                    
                     Button {
                         Task {
                             try await viewModel.logIn(email: email, password: password)
@@ -56,6 +59,8 @@ struct LoginView: View {
                     } label: {
                         MainButtonStyle(title: "Zaloguj się", backgroundColor: Color(hue: 0.04, saturation: 0.808, brightness: 1.0), textColor: Color.white)
                     }
+                    .disabled(!formulaIsValid)
+                    .opacity(formulaIsValid ? 1 : 0.8)
                     
                     HStack (spacing: 10){
                         Rectangle()
@@ -86,6 +91,12 @@ struct LoginView: View {
                 }
             }
         }
+    }
+}
+
+extension LoginView: AuthenticationFormProtocol {
+    var formulaIsValid: Bool {
+        return !email.isEmpty && email.contains("@") && !password.isEmpty && password.count >= 6
     }
 }
 
