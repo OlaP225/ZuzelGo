@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         
         ZStack (alignment: .topTrailing){
@@ -41,6 +43,9 @@ struct WelcomeView: View {
                 Spacer()
                 
                 Button {
+                    Task {
+                        try await viewModel.logInAsAGuest()
+                    }
                     
                 } label: {
                     MainButtonStyle(title: "Dołącz jako gość",
@@ -48,8 +53,8 @@ struct WelcomeView: View {
                                     textColor: Color.black)
                 }
                 
-                Button {
-                    
+                NavigationLink {
+                    RegisterView()
                 } label: {
                     MainButtonStyle(title: "Zaloguj/Zarejestruj się",
                                     backgroundColor: Color.white,
@@ -62,6 +67,7 @@ struct WelcomeView: View {
             .padding()
             
         }
+
     }
 }
 

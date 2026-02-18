@@ -49,6 +49,18 @@ class AuthViewModel: ObservableObject {
         }
         
     }
+    func logInAsAGuest() async throws {
+        do {
+            let result = try await Auth.auth().signInAnonymously()
+            self.userSession = result.user
+            let user = User(id: result.user.uid, username: "Gość", email: "konto_gościnne@gmail.com")
+            let encodedUser = try Firestore.Encoder().encode(user)
+            try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            self.currentUser = user
+        } catch {
+            print("DEBUG: Failed to log in as a guest due to error: \(error.localizedDescription)")
+        }
+    }
     
     func logOut() {
         do {
